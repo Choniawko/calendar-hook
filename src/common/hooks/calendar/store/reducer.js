@@ -2,14 +2,13 @@ import { actions } from "./actions"
 
 const { Calendar } = require("calendar")
 const calendar = new Calendar(1)
-const currDate = new Date()
 const currMonth = (year, month) => calendar.monthDays(year, month)
 
-export const initialState = {
+export const getInitialState = currDate => ({
   year: currDate.getFullYear(),
   month: currDate.getMonth(),
   weeks: currMonth(currDate.getFullYear(), currDate.getMonth()),
-}
+})
 
 const { increment, decrement } = actions
 
@@ -20,7 +19,7 @@ const incrementYear = (incMonth, currentYear) =>
 const decrementYear = (decMonth, currentYear) =>
   decMonth === 11 ? currentYear - 1 : currentYear
 
-export const reducer = (state = initialState, { type }) => {
+export const reducer = (state, { type }) => {
   switch (type) {
     case increment.type:
       return {

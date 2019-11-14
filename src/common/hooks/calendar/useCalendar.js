@@ -1,8 +1,8 @@
 import { useReducer, useCallback } from "react"
-import { reducer, initialState, actions } from "./store"
+import { reducer, getInitialState, actions } from "./store"
 
-export const useCalendar = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+export const useCalendar = date => {
+  const [state, dispatch] = useReducer(reducer, getInitialState(date))
 
   const increment = useCallback(() => {
     dispatch(actions.increment.create())

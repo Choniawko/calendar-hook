@@ -2,8 +2,8 @@ import React from "react"
 import { useCalendar } from "../useCalendar"
 import { Container, Month, Week, Day } from "./Calendar.styles"
 
-export default () => {
-  const { state, increment, decrement } = useCalendar()
+export default ({ date }) => {
+  const { state, increment, decrement } = useCalendar(date)
   return (
     <Container>
       <button onClick={() => decrement()} type="button">
