@@ -1,7 +1,8 @@
 import React from "react"
 import logo from "./logo.svg"
 import "./App.css"
-import { useCalendar, Calendar } from "./common/hooks"
+import { useCalendar } from "./common/hooks"
+import { Calendar } from "./components/Calendar"
 
 function App() {
   const { state } = useCalendar(new Date())

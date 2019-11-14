@@ -1,5 +1,5 @@
 import React from "react"
-import { useCalendar } from "../useCalendar"
+import { useCalendar } from "../../common/hooks"
 import { Container, Month, Week, Day } from "./Calendar.styles"
 
 export default ({ date }) => {
