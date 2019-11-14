@@ -1,5 +1,6 @@
 const { Calendar } = require("calendar")
-const calendar = new Calendar(1)
+const FIRST_DAY_OF_WEEK = 1
+const calendar = new Calendar(FIRST_DAY_OF_WEEK)
 export const currMonth = (year, month) => calendar.monthDays(year, month)
 
 export const getInitialState = currDate => ({
