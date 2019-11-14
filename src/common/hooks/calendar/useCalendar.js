@@ -2,7 +2,10 @@ import { useReducer, useCallback } from "react"
 import { reducer, getInitialState, actions } from "./store"
 
 export const useCalendar = date => {
-  const [state, dispatch] = useReducer(reducer, getInitialState(date))
+  const [{ weeks, month, year }, dispatch] = useReducer(
+    reducer,
+    getInitialState(date),
+  )
 
   const increment = useCallback(() => {
     dispatch(actions.increment.create())
@@ -11,5 +14,5 @@ export const useCalendar = date => {
     dispatch(actions.decrement.create())
   }, [])
 
-  return { state, increment, decrement }
+  return { weeks, month, year, increment, decrement }
 }
