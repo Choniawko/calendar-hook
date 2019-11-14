@@ -3,9 +3,12 @@ import { useCalendar } from "../useCalendar"
 import { Container, Month, Week, Day } from "./Calendar.styles"
 
 export default () => {
-  const { state } = useCalendar()
+  const { state, increment, decrement } = useCalendar()
   return (
     <Container>
+      <button onClick={() => decrement()} type="button">
+        prev
+      </button>
       <Month>
         {state.weeks.map((week, i) => (
           <Week key={i}>
@@ -15,6 +18,9 @@ export default () => {
           </Week>
         ))}
       </Month>
+      <button onClick={() => increment()} type="button">
+        next
+      </button>
     </Container>
   )
 }
